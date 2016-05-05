@@ -10,16 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var bannerTypeSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let successfullString = "Your step goal has been successfully saved"
-        let informationalString = "Your settings were not saved"
-        
-        let banner = HartBottomBanner()
-        banner.showBanner(messageText: informationalString, masterView: self.view, isSuccess: false, target: self)//INFORMATIONAL
-//        banner.showBanner(messageText: successfullString, masterView: self.view, isSuccess: true, target: self)//SUCCESS
 
     }
 
@@ -29,17 +26,33 @@ class ViewController: UIViewController {
     
     
     @IBAction func showBannerAction(sender: UIButton) {
+        let successfullString = "Your step goal has been successfully saved"
+        let informationalString = "Your settings were not saved"
+        
+        if bannerTypeSwitch.on == true {
+            
+            let banner = HartBottomBanner()
+            banner.showBanner(messageText: successfullString, masterView: self.view, isSuccess: true, target: self)//SUCCESS
+
+        } else {
+            
+            let banner = HartBottomBanner()
+            banner.showBanner(messageText: informationalString, masterView: self.view, isSuccess: false, target: self)//INFORMATIONAL
+        }
+        
+
         
     }
 
     @IBAction func switchBannerType(sender: UISwitch) {
+        
     }
     
     
     
     
     
-    func buttonPressed() {
+    func bottomBannerButtonPressed() {
         print("Button Pressed Successfully")
     }
     

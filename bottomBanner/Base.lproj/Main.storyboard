@@ -75,6 +75,9 @@
                             <constraint firstItem="Iza-h3-WbS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ysb-qA-laS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bannerTypeSwitch" destination="fug-f2-dhC" id="md2-G4-Ahe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

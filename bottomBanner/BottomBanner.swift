@@ -16,7 +16,7 @@ class HartBottomBanner  {
     
     /// This function creates bottom banner for masterView.
     ///
-    /// **Warning:** Make sure that target has button Selector Method. OR app will crash
+    /// **Warning:** Make sure that target has button Selector Method. Otherwise app will crash
     ///
     /// Usage:
     ///
@@ -69,8 +69,8 @@ class HartBottomBanner  {
             button.setTitle("Retry", forState: UIControlState.Normal)
             button.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 15.0)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            //WARNING... Make sure that target has Selector Method. OR app will crash
-            button.addTarget(target, action: Selector("buttonPressed"), forControlEvents: UIControlEvents.TouchUpInside)///WORKS
+            //WARNING... Make sure that target has Selector Method. Otherwise app will crash
+            button.addTarget(target, action: Selector("bottomBannerButtonPressed"), forControlEvents: UIControlEvents.TouchUpInside)///WORKS
             bannerView.addSubview(button)
 
         }
@@ -97,51 +97,52 @@ class HartBottomBanner  {
         bannerView.addSubview(bannerTextview)
         
         
-//        // Label for message text
-//        var incomeMessageLabel = UILabel(frame: CGRect(
-//            x: 0,
-//            y: 0,
-//            width: self.view.frame.size.width,
-//            height:self.view.frame.size.height/12))
-//        incomeMessageLabel.textColor = UIColor.whiteColor()
-//        incomeMessageLabel.text = messageText
-//        incomeMessageLabel.font = UIFont.systemFontOfSize(12.0)
-//        incomeMessageLabel.backgroundColor = UIColor.clearColor()
-//        incomeMessageLabel.textAlignment = NSTextAlignment.Center
-//        incomeMessageLabel.numberOfLines = 0
-//
-//
-//
-//
-//
-//        //hiding views
-//        blurEffectView.center.x -= view.bounds.width
-//
-//
-//
-//
-//        UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.4,
-//                                   initialSpringVelocity: 0.7, options: nil, animations: {
-//                                    blurEffectView.center.x += self.view.bounds.width
-//
-//        }) { (complection: Bool) -> Void in
-//            //
-//            UIView.animateWithDuration(0.2, delay: 2.0, options: .CurveEaseOut, animations: { () -> Void in
-//                //                    blurEffectView.center.y += blurEffectView.frame.size.height
-//                blurEffectView.center.y -= blurEffectView.frame.size.height + UIApplication.sharedApplication().statusBarFrame.size.height
-//                
-//            }) { (complection: Bool) -> Void in
-//                blurEffectView.removeFromSuperview()
-//            }
-//            
-//        }
-//        
-//        
-//        
-//        
-//        
+        //hiding banner
+        bannerView.frame.origin.y = masterView.bounds.size.height
+
+        
+        //Appearance animation
+        UIView.animateWithDuration(0.5, animations: {
+            //Animation 1
+            //showing banner
+            bannerView.frame.origin.y = masterView.bounds.size.height - bannerHeight
+
+            }) { (completed) in
+                if completed {
+
+                    self.delay(2.0, completion: {
+                        UIView.animateWithDuration(0.5, animations: {
+                            //Animation 2
+                            //hiding banner
+                            bannerView.frame.origin.y = masterView.bounds.size.height
+                            
+                            }, completion: { (success) in
+                                if success {
+                                    print("DONE with banner animation")
+                                }
+                        })
+
+                    })
+                    
+                    
+            }
+        }
+
+
+        
+        
+        
+        
     }
     
+    func delay(seconds: Double, completion:()->()) {
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
+        
+        dispatch_after(popTime, dispatch_get_main_queue()) {
+            completion()
+        }
+    }
+
     
 
     deinit {
