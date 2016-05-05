@@ -74,16 +74,8 @@ class HartBottomBanner  {
             bannerView.addSubview(button)
 
         }
-
-        
-        
-        
+        //BG Color
         bannerView.backgroundColor = bannerColor
-
-        
-        
-        
-        
         
         //Textmessage
         let bannerTextview = UILabel(frame: textFrame)
@@ -92,14 +84,11 @@ class HartBottomBanner  {
         bannerTextview.textAlignment = NSTextAlignment.Center
         bannerTextview.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
         bannerTextview.backgroundColor = UIColor.clearColor()
-        
-        
         bannerView.addSubview(bannerTextview)
         
         
-        //hiding banner
+        //hiding banner for animation starting point
         bannerView.frame.origin.y = masterView.bounds.size.height
-
         
         //Appearance animation
         UIView.animateWithDuration(0.5, animations: {
@@ -146,7 +135,7 @@ class HartBottomBanner  {
     
 
     deinit {
-        print("DDDEEEEIIINNNIIITTTED")
+        print("Bottom banner DEINIT Method call")
     }
 }
 
