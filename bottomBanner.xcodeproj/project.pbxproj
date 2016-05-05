@@ -12,6 +12,7 @@
 		449EEFF91CDAB2150010861C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449EEFF71CDAB2150010861C /* Main.storyboard */; };
 		449EEFFB1CDAB2150010861C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 449EEFFA1CDAB2150010861C /* Assets.xcassets */; };
 		449EEFFE1CDAB2150010861C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449EEFFC1CDAB2150010861C /* LaunchScreen.storyboard */; };
+		449EF0081CDABCE20010861C /* BottomBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449EF0071CDABCE20010861C /* BottomBanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		449EEFFA1CDAB2150010861C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		449EEFFD1CDAB2150010861C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		449EEFFF1CDAB2150010861C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		449EF0071CDABCE20010861C /* BottomBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				449EEFF31CDAB2150010861C /* AppDelegate.swift */,
 				449EEFF51CDAB2150010861C /* ViewController.swift */,
 				449EEFF71CDAB2150010861C /* Main.storyboard */,
+				449EF0071CDABCE20010861C /* BottomBanner.swift */,
 				449EEFFA1CDAB2150010861C /* Assets.xcassets */,
 				449EEFFC1CDAB2150010861C /* LaunchScreen.storyboard */,
 				449EEFFF1CDAB2150010861C /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				449EEFF61CDAB2150010861C /* ViewController.swift in Sources */,
 				449EEFF41CDAB2150010861C /* AppDelegate.swift in Sources */,
+				449EF0081CDABCE20010861C /* BottomBanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
