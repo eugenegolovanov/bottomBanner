@@ -10,23 +10,41 @@ import UIKit
 
 
 
+//-------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------
+//MARK: -
+//MARK: - enum bottomBannerStyle
+
+
+enum bottomBannerStyle : String {
+    case Success
+    case Informational
+}
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------
+//MARK: -
+//MARK: - HartBottomBanner
+
 class HartBottomBanner  {
 
     
     
     /// This function creates bottom banner for masterView.
     ///
-    /// **Warning:** Make sure that target has button Selector Method. Otherwise app will crash
+    /// **Warning:** Make sure that target has same method that is in button Selector Method. Otherwise app will crash
     ///
     /// Usage:
     ///
     ///        let banner = HartBottomBanner()
-    ///        banner.showBanner(messageText: informationalString, masterView: self.view, isSuccess: false, target: self)
+    ///        banner.showBanner(messageText: successfullString, masterView: self.view, bannerStyle: bottomBannerStyle.Success.rawValue, target: self)//SUCCESS
     ///
-    /// :param: isSuccess if false - creates button and bg color for banner will be dark. If it is true bg will be green and no button
+    /// :param: bannerStyle - If 'Informational' creates button and bg color for banner will be dark. If it is 'Success' bg will be green and no button
     ///
     /// :returns: nothing
-    func showBanner(messageText messageText:String , masterView:UIView, isSuccess:Bool, target: AnyObject) {
+    func showBanner(messageText messageText:String , masterView:UIView, bannerStyle:String, target: AnyObject) {
 
         //Constants
         var bannerColor = UIColor.clearColor()
@@ -43,10 +61,10 @@ class HartBottomBanner  {
         masterView.bringSubviewToFront(bannerView)
 
         
-        //////////////////Check ifSuccess Call ////////////////////////////
-        var textFrame:CGRect
-        if isSuccess == true {
-            //If TRUE
+        //////////////////Check if Success Call ////////////////////////////
+        var textFrame:CGRect = CGRectZero
+        if bannerStyle == bottomBannerStyle.Success.rawValue {
+            //If SUCCESS
             let textWidthMargin:CGFloat = 35.8
             textFrame = CGRectMake(textWidthMargin,
                                    8.0,
@@ -54,8 +72,9 @@ class HartBottomBanner  {
                                    bannerHeight-16.5)
             bannerColor = UIColor(red: 58.0/255, green: 201.0/255, blue: 92.0/255, alpha: 1.0)
 
-        } else {
-            //IF FALSE
+        }
+        else if bannerStyle == bottomBannerStyle.Informational.rawValue {
+            //IF INFORMATIONAL
             textFrame = CGRectMake(16,
                                    8.0,
                                    202,

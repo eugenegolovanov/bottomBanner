@@ -32,12 +32,12 @@ class ViewController: UIViewController {
         if bannerTypeSwitch.on == true {
             
             let banner = HartBottomBanner()
-            banner.showBanner(messageText: successfullString, masterView: self.view, isSuccess: true, target: self)//SUCCESS
+            banner.showBanner(messageText: successfullString, masterView: self.view, bannerStyle: bottomBannerStyle.Success.rawValue, target: self)//SUCCESS
 
         } else {
             
             let banner = HartBottomBanner()
-            banner.showBanner(messageText: informationalString, masterView: self.view, isSuccess: false, target: self)//INFORMATIONAL
+            banner.showBanner(messageText: informationalString, masterView: self.view, bannerStyle:bottomBannerStyle.Informational.rawValue, target: self)//INFORMATIONAL
         }
         
 
